@@ -21,6 +21,7 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('message', message);
     });
 
+    // show number of users
     socket.on('numberOfClients', function (users) {
         console.log('Received message:', users);
         socket.broadcast.emit('numberOfClients', countUsers);
