@@ -9,12 +9,21 @@ app.use(express.static('public'));
 var server = http.Server(app);
 var io = socket_io(server);
 
+var countUsers = 0;
+
 io.on('connection', function (socket) {
-    console.log('Client connected');
+    countUsers++
+    console.log(countUsers + ' Client(s) connected');
+    //socket.broadcast.emit('message', )
 
     socket.on('message', function (message) {
         console.log('Received message:', message);
         socket.broadcast.emit('message', message);
+    });
+
+    socket.on('numberOfClients', function (users) {
+        console.log('Received message:', users);
+        socket.broadcast.emit('numberOfClients', countUsers);
     });
 });
 

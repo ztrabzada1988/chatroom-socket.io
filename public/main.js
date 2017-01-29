@@ -8,6 +8,10 @@ $(document).ready(function () {
         messages.append('<div>' + message + '</div>');
     };
 
+    var countClients = function (users) {
+        messages.append('<div>' + 'There are currently ' + users + ' in the chatroom' + '</div>');
+    }
+
     input.on('keydown', function (event) {
         if (event.keyCode != 13) {
             return;
@@ -21,4 +25,5 @@ $(document).ready(function () {
     });
     // listen for incoming messages/replies from server
     socket.on('message', addMessage);
+    socket.on('numberOfClients', countClients);
 });
