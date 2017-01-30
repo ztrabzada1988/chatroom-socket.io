@@ -14,18 +14,15 @@ var countUsers = 0;
 io.on('connection', function (socket) {
     countUsers++
     console.log(countUsers + ' Client(s) connected');
-    //socket.broadcast.emit('message', )
+    // send (emit) countUsers to with name: numberOfClients to be captured in main.js
+    io.emit('numberOfClients', countUsers);
 
     socket.on('message', function (message) {
         console.log('Received message:', message);
         socket.broadcast.emit('message', message);
     });
 
-    // show number of users
-    socket.on('numberOfClients', function (users) {
-        console.log('Received message:', users);
-        socket.broadcast.emit('numberOfClients', countUsers);
-    });
+
 });
 
 server.listen(process.env.PORT || 8080);

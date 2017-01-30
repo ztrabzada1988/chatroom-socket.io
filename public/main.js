@@ -9,7 +9,7 @@ $(document).ready(function () {
     };
 
     var countClients = function (users) {
-        messages.append('<div>' + 'There are currently ' + users + ' in the chatroom' + '</div>');
+        $('#usersConnected').html('<p>' + 'There are currently ' + users + ' users in the chatroom</p>');
     }
 
     input.on('keydown', function (event) {
@@ -26,4 +26,6 @@ $(document).ready(function () {
     // listen for incoming messages/replies from server
     socket.on('message', addMessage);
     socket.on('numberOfClients', countClients);
+
+
 });
