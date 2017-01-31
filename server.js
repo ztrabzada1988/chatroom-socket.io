@@ -21,8 +21,6 @@ io.on('connection', function (socket) {
         console.log('Received message:', message);
         socket.broadcast.emit('message', message);
     });
-
-
 });
 
 server.listen(process.env.PORT || 8080);

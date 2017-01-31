@@ -27,5 +27,4 @@ $(document).ready(function () {
     socket.on('message', addMessage);
     socket.on('numberOfClients', countClients);
 
-
 });
