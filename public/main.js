@@ -13,7 +13,8 @@ $(document).ready(function () {
     }
 
     var userConnected = function (userId) {
-        prompt(userId + ' has joined the chatroom');
+        $('#userId').append('<p>' + userId + ' has joined the chatroom' + '</p>');
+        //$('#userId').fadeOut(4000);
     }
 
     input.on('keydown', function (event) {
