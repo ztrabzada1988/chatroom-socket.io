@@ -12,6 +12,10 @@ $(document).ready(function () {
         $('#usersConnected').html('<p>' + 'There are currently ' + users + ' users in the chatroom</p>');
     }
 
+    var userConnected = function (userId) {
+        prompt(userId + ' has joined the chatroom');
+    }
+
     input.on('keydown', function (event) {
         if (event.keyCode != 13) {
             return;
@@ -26,5 +30,6 @@ $(document).ready(function () {
     // listen for incoming messages/replies from server
     socket.on('message', addMessage);
     socket.on('numberOfClients', countClients);
+    socket.on('userId', userConnected);
 
 });
