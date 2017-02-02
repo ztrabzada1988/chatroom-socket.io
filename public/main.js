@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     var userConnected = function (userId) {
         $('#userId').append('<p>' + userId + ' has joined the chatroom' + '</p>');
-        //$('#userId').fadeOut();
+        $('#userId').fadeOut(3000);
     }
 
     input.on('keydown', function (event) {
@@ -28,6 +28,7 @@ $(document).ready(function () {
         socket.emit('message', message);
         input.val('');
     });
+
     // listen for incoming messages/replies from server
     socket.on('message', addMessage);
     socket.on('numberOfClients', countClients);
