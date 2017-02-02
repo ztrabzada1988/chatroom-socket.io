@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     var userConnected = function (userId) {
         $('#userId').append('<p>' + userId + ' has joined the chatroom' + '</p>');
-        //$('#userId').fadeOut(4000);
+        $('#userId').fadeOut(4000);
     }
 
     input.on('keydown', function (event) {
